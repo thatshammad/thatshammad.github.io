@@ -10,15 +10,23 @@
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 
-/* ============ COLOR THEME ============ */
+/* ===== THEMES ===== */
 :root{
 --bg:#04061a;
 --card:#0b1033;
 --cyan:#22d3ee;
 --purple:#a855f7;
 --text:#e5f0ff;
+--glow:1;
 }
 
+body.dark{
+--cyan:#6b7280;
+--purple:#9ca3af;
+--glow:0;
+}
+
+/* ===== BASE ===== */
 body{
 background:radial-gradient(circle at top,#080b2d,var(--bg));
 color:var(--text);
@@ -26,7 +34,28 @@ overflow-x:hidden;
 cursor:none;
 }
 
-/* ============ LOADER ============ */
+/* ===== TOGGLES ===== */
+.top-controls{
+position:fixed;
+top:20px;
+right:20px;
+display:flex;
+gap:10px;
+z-index:999;
+}
+
+.toggle{
+padding:8px 14px;
+border-radius:20px;
+background:var(--card);
+border:1px solid var(--cyan);
+color:#fff;
+font-size:.75rem;
+cursor:pointer;
+box-shadow:0 0 10px rgba(34,211,238,.4);
+}
+
+/* ===== LOADER ===== */
 #loader{
 position:fixed;
 inset:0;
@@ -36,75 +65,78 @@ align-items:center;
 justify-content:center;
 flex-direction:column;
 z-index:9999;
-transition:.6s ease;
+transition:.6s;
 }
 
 #loader.hide{opacity:0;visibility:hidden}
 
 .loader-ring{
-width:120px;
-height:120px;
-border-radius:50%;
+width:110px;height:110px;border-radius:50%;
 border:3px solid transparent;
 border-top:3px solid var(--cyan);
 border-right:3px solid var(--purple);
 animation:spin 1.2s linear infinite;
-box-shadow:0 0 25px var(--cyan),0 0 45px var(--purple);
+box-shadow:0 0 calc(25px*var(--glow)) var(--cyan),
+           0 0 calc(45px*var(--glow)) var(--purple);
 }
 
 .loader-text{
 margin-top:25px;
-font-size:1.6rem;
-letter-spacing:2px;
-text-shadow:0 0 12px var(--cyan),0 0 25px var(--purple);
+letter-spacing:3px;
+font-size:1.4rem;
+text-shadow:0 0 10px var(--cyan);
+}
+
+.loader-controls{
+margin-top:20px;
+font-size:.8rem;
+cursor:pointer;
+opacity:.8;
 }
 
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ============ CURSOR ============ */
+/* ===== CURSOR (DESKTOP ONLY) ===== */
 .cursor{
 position:fixed;
-width:18px;
-height:18px;
+width:18px;height:18px;
 border-radius:50%;
-pointer-events:none;
 border:2px solid var(--cyan);
-box-shadow:0 0 12px var(--cyan),0 0 25px var(--purple);
+pointer-events:none;
 transform:translate(-50%,-50%);
+box-shadow:0 0 15px rgba(34,211,238,.8);
 z-index:999;
 }
 
-/* ============ PARTICLES ============ */
+/* ===== PARTICLES ===== */
 .particle{
 position:fixed;
-width:4px;
-height:4px;
+width:4px;height:4px;
 background:var(--cyan);
 border-radius:50%;
 opacity:.35;
 animation:float 18s linear infinite;
-box-shadow:0 0 8px var(--cyan);
 }
 
-/* ============ HERO ============ */
+/* ===== HERO ===== */
 .hero{
 height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
 }
 
 .hero h1{
-font-size:3.4rem;
-text-shadow:0 0 12px var(--cyan),0 0 28px var(--purple);
+font-size:3.2rem;
+text-shadow:0 0 calc(12px*var(--glow)) var(--cyan),
+           0 0 calc(28px*var(--glow)) var(--purple);
 }
-
 .hero span{color:var(--purple)}
 .hero p{margin:15px 0;color:#c7d2fe}
 
 .btn{
-padding:12px 36px;
+padding:12px 34px;
 border-radius:30px;
 background:linear-gradient(135deg,var(--cyan),var(--purple));
 color:#04061a;
@@ -112,112 +144,126 @@ font-weight:600;
 text-decoration:none;
 margin:6px;
 display:inline-block;
-box-shadow:0 0 15px rgba(34,211,238,.6),0 0 30px rgba(168,85,247,.6);
 transition:.2s;
+box-shadow:0 0 calc(20px*var(--glow)) var(--cyan);
 }
 
-/* ============ SECTIONS ============ */
+/* ===== SECTIONS ===== */
 section{padding:100px 10%}
-
 h2{
-font-size:2.2rem;
+font-size:2.1rem;
 margin-bottom:40px;
-text-shadow:0 0 6px var(--cyan);
 position:relative;
 }
 h2::after{
 content:'';
-width:70px;
-height:3px;
+width:70px;height:3px;
 background:var(--purple);
 position:absolute;
-bottom:-12px;
-left:0;
-box-shadow:0 0 10px var(--purple);
+bottom:-12px;left:0;
 }
 
-/* ============ REVEAL ============ */
+/* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(60px);transition:1s}
 .reveal.active{opacity:1;transform:none}
 
-/* ============ CARD ============ */
+/* ===== CARD ===== */
 .card{
 background:linear-gradient(180deg,#0e1445,var(--card));
 padding:30px;
 border-radius:22px;
-box-shadow:0 0 18px rgba(34,211,238,.25),0 0 35px rgba(168,85,247,.25);
-margin-bottom:20px;
+box-shadow:0 0 calc(25px*var(--glow)) rgba(168,85,247,.35);
 }
 
-/* ============ SKILLS ============ */
+/* ===== SKILLS ===== */
 .skills{display:flex;flex-wrap:wrap;gap:15px}
 .skill{
 background:#05082a;
 padding:10px 18px;
 border-radius:20px;
 border:1px solid var(--cyan);
-text-shadow:0 0 6px var(--cyan);
-transition:.3s;
-}
-.skill:hover{
-transform:translateY(-4px);
-box-shadow:0 0 15px var(--cyan),0 0 30px var(--purple);
 }
 
-/* ============ PROJECTS ============ */
-.slider{display:flex;gap:20px;overflow-x:auto}
+/* ===== PROJECTS (TOUCH FRIENDLY) ===== */
+.slider{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
 .project{
-min-width:300px;
+min-width:280px;
+scroll-snap-align:start;
 background:#05082a;
 border-radius:20px;
 overflow:hidden;
 border:1px solid var(--purple);
-box-shadow:0 0 10px rgba(168,85,247,.6);
-transition:.4s;
-}
-.project:hover{
-transform:scale(1.07);
-box-shadow:0 0 20px var(--cyan),0 0 40px var(--purple);
-}
-.project img{width:100%;height:180px;object-fit:cover}
-.project div{padding:20px}
-.project a{color:var(--cyan);text-decoration:none}
-
-/* ============ CONTACT ============ */
-.contact a{
-display:block;
-color:var(--text);
-text-decoration:none;
-margin-bottom:10px;
 transition:.3s;
 }
-.contact a:hover{color:var(--cyan);transform:translateX(5px)}
+.project img{width:100%;height:170px;object-fit:cover}
+.project div{padding:20px}
+
+/* ===== CONTACT ===== */
+.contact a{
+display:block;
+color:#fff;
+text-decoration:none;
+margin-bottom:10px;
+}
 
 footer{text-align:center;padding:30px;opacity:.85}
 
 @keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-100vh)}}
+
+/* ===== MOBILE OPT ===== */
+@media(max-width:768px){
+body{cursor:auto}
+.cursor{display:none}
+section{padding:80px 6%}
+.hero h1{font-size:2.4rem}
+}
 </style>
 </head>
 
 <body>
 
+<!-- TOP TOGGLES -->
+<div class="top-controls">
+<div class="toggle" onclick="toggleTheme()">🌙 Theme</div>
+</div>
+
 <!-- LOADER -->
 <div id="loader">
 <div class="loader-ring"></div>
 <div class="loader-text">LOADING</div>
+<div class="loader-controls" onclick="toggleSound()">🔊 Sound ON/OFF</div>
 </div>
 
-<!-- SOUND -->
 <audio id="loadSound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3"></audio>
 
 <div class="cursor"></div>
 
 <script>
-// Loader fast
+let soundOn=true;
+
+// Loader
 window.addEventListener("load",()=>{
-document.getElementById("loadSound").play().catch(()=>{});
-setTimeout(()=>document.getElementById("loader").classList.add("hide"),1600);
+if(soundOn) document.getElementById("loadSound").play().catch(()=>{});
+setTimeout(()=>loader.classList.add("hide"),1400);
 });
+
+// Sound toggle
+function toggleSound(){
+soundOn=!soundOn;
+document.querySelector(".loader-controls").innerText=
+soundOn?"🔊 Sound ON":"🔇 Sound OFF";
+}
+
+// Theme toggle
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
 
 // Cursor
 const cursor=document.querySelector(".cursor");
@@ -227,7 +273,7 @@ cursor.style.top=e.clientY+"px";
 });
 
 // Particles
-for(let i=0;i<35;i++){
+for(let i=0;i<30;i++){
 let p=document.createElement("div");
 p.className="particle";
 p.style.left=Math.random()*100+"%";
@@ -269,10 +315,10 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 <h3>Unity Game Developer — Emerging Tech</h3>
 <p>June 2024 – Present</p>
 <ul>
-<li>• Unity 3D game development</li>
-<li>• iOS App Store publishing</li>
-<li>• Bug fixing & optimization</li>
-<li>• Gameplay improvement</li>
+<li>Unity 3D development</li>
+<li>iOS App Store publishing</li>
+<li>Bug fixing & optimization</li>
+<li>Gameplay improvement</li>
 </ul>
 </div>
 </section>
@@ -284,8 +330,6 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 <div class="skill">Unity 2D / 3D</div>
 <div class="skill">C#</div>
 <div class="skill">iOS Publishing</div>
-<div class="skill">App Store Management</div>
-<div class="skill">Debugging</div>
 <div class="skill">Optimization</div>
 </div>
 </div>
@@ -304,21 +348,11 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 </div>
 
 <div class="project">
-<img src="images/game1ss2.jpg">
-<div><h3>4x4 Offroad Jeep Driving 3D</h3></div>
-</div>
-
-<div class="project">
 <img src="images/game2ss1.jpg">
 <div>
 <h3>Sniper Safari Wild Chase</h3>
 <a href="https://apps.apple.com/pk/app/sniper-safari-wild-chase/id6743483362" target="_blank">App Store →</a>
 </div>
-</div>
-
-<div class="project">
-<img src="images/game2ss2.jpg">
-<div><h3>Sniper Safari Wild Chase</h3></div>
 </div>
 
 </div>
@@ -328,7 +362,7 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 <h2>Contact</h2>
 <div class="card contact">
 <a href="mailto:thatsmehammad@gmail.com">📧 thatsmehammad@gmail.com</a>
-<a href="https://wa.me/923704103667" target="_blank">📞 WhatsApp: 0370-4103667</a>
+<a href="https://wa.me/923704103667">📞 WhatsApp</a>
 <p>📍 Sheikhupura, Pakistan</p>
 </div>
 </section>
