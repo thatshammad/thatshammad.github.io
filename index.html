@@ -3,66 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hammad | Unity Game Developer</title>
-<link rel="icon" type="image/png" href="profile.png">
+<link rel="icon" type="image/png" href="images/profile.png">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 
-/* ============ COLOR THEME ============ */
+/* ===== COLOR THEME (CHANGED ONLY) ===== */
 :root{
---bg:#04061a;
---card:#0b1033;
---cyan:#22d3ee;
---purple:#a855f7;
---text:#e5f0ff;
+--bg:#020617;
+--card:#020b2d;
+--cyan:#38bdf8;
+--purple:#6366f1;
+--text:#e0e7ff;
 }
 
 body{
-background:radial-gradient(circle at top,#080b2d,var(--bg));
+background:radial-gradient(circle at top,#020b2d,var(--bg));
 color:var(--text);
 overflow-x:hidden;
 cursor:none;
 }
 
-/* ============ LOADER ============ */
-#loader{
-position:fixed;
-inset:0;
-background:radial-gradient(circle,#0b1033,#04061a);
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-z-index:9999;
-transition:.6s ease;
-}
-
-#loader.hide{opacity:0;visibility:hidden}
-
-.loader-ring{
-width:120px;
-height:120px;
-border-radius:50%;
-border:3px solid transparent;
-border-top:3px solid var(--cyan);
-border-right:3px solid var(--purple);
-animation:spin 1.2s linear infinite;
-box-shadow:0 0 25px var(--cyan),0 0 45px var(--purple);
-}
-
-.loader-text{
-margin-top:25px;
-font-size:1.6rem;
-letter-spacing:2px;
-text-shadow:0 0 12px var(--cyan),0 0 25px var(--purple);
-}
-
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ============ CURSOR ============ */
+/* ===== CURSOR ===== */
 .cursor{
 position:fixed;
 width:18px;
@@ -75,7 +41,7 @@ transform:translate(-50%,-50%);
 z-index:999;
 }
 
-/* ============ PARTICLES ============ */
+/* ===== PARTICLES ===== */
 .particle{
 position:fixed;
 width:4px;
@@ -87,7 +53,7 @@ animation:float 18s linear infinite;
 box-shadow:0 0 8px var(--cyan);
 }
 
-/* ============ HERO ============ */
+/* ===== HERO ===== */
 .hero{
 height:100vh;
 display:flex;
@@ -96,28 +62,37 @@ align-items:center;
 text-align:center;
 }
 
+.profile-pic{
+width:160px;
+height:160px;
+border-radius:50%;
+border:4px solid var(--cyan);
+box-shadow:0 0 25px var(--cyan),0 0 50px var(--purple);
+object-fit:cover;
+margin-bottom:20px;
+}
+
 .hero h1{
 font-size:3.4rem;
 text-shadow:0 0 12px var(--cyan),0 0 28px var(--purple);
 }
 
-.hero span{color:var(--purple)}
 .hero p{margin:15px 0;color:#c7d2fe}
 
 .btn{
 padding:12px 36px;
 border-radius:30px;
 background:linear-gradient(135deg,var(--cyan),var(--purple));
-color:#04061a;
+color:#020617;
 font-weight:600;
 text-decoration:none;
 margin:6px;
 display:inline-block;
-box-shadow:0 0 15px rgba(34,211,238,.6),0 0 30px rgba(168,85,247,.6);
+box-shadow:0 0 15px rgba(56,189,248,.6),0 0 30px rgba(99,102,241,.6);
 transition:.2s;
 }
 
-/* ============ SECTIONS ============ */
+/* ===== SECTIONS ===== */
 section{padding:100px 10%}
 
 h2{
@@ -127,7 +102,9 @@ text-shadow:0 0 6px var(--cyan);
 position:relative;
 }
 h2::after{
-content:''; width:70px; height:3px;
+content:'';
+width:70px;
+height:3px;
 background:var(--purple);
 position:absolute;
 bottom:-12px;
@@ -135,23 +112,23 @@ left:0;
 box-shadow:0 0 10px var(--purple);
 }
 
-/* ============ REVEAL ============ */
+/* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(60px);transition:1s}
 .reveal.active{opacity:1;transform:none}
 
-/* ============ CARD ============ */
+/* ===== CARD ===== */
 .card{
-background:linear-gradient(180deg,#0e1445,var(--card));
+background:linear-gradient(180deg,#020b3a,var(--card));
 padding:30px;
 border-radius:22px;
-box-shadow:0 0 18px rgba(34,211,238,.25),0 0 35px rgba(168,85,247,.25);
+box-shadow:0 0 18px rgba(56,189,248,.25),0 0 35px rgba(99,102,241,.25);
 margin-bottom:20px;
 }
 
-/* ============ SKILLS ============ */
+/* ===== SKILLS ===== */
 .skills{display:flex;flex-wrap:wrap;gap:15px}
 .skill{
-background:#05082a;
+background:#020617;
 padding:10px 18px;
 border-radius:20px;
 border:1px solid var(--cyan);
@@ -163,15 +140,15 @@ transform:translateY(-4px);
 box-shadow:0 0 15px var(--cyan),0 0 30px var(--purple);
 }
 
-/* ============ PROJECTS ============ */
+/* ===== PROJECTS ===== */
 .slider{display:flex;gap:20px;overflow-x:auto}
 .project{
 min-width:300px;
-background:#05082a;
+background:#020617;
 border-radius:20px;
 overflow:hidden;
 border:1px solid var(--purple);
-box-shadow:0 0 10px rgba(168,85,247,.6);
+box-shadow:0 0 10px rgba(99,102,241,.6);
 transition:.4s;
 }
 .project:hover{
@@ -182,7 +159,7 @@ box-shadow:0 0 20px var(--cyan),0 0 40px var(--purple);
 .project div{padding:20px}
 .project a{color:var(--cyan);text-decoration:none}
 
-/* ============ CONTACT ============ */
+/* ===== CONTACT ===== */
 .contact a{
 display:block;
 color:var(--text);
@@ -194,48 +171,24 @@ transition:.3s;
 
 footer{text-align:center;padding:30px;opacity:.85}
 
-/* ============ FLOATING BUTTONS ============ */
-#floatingButtons .btn{
-box-shadow:0 0 15px rgba(34,211,238,.8),0 0 30px rgba(168,85,247,.8);
-animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-100vh)}}
-@keyframes glow{
-from{box-shadow:0 0 15px rgba(34,211,238,.8),0 0 30px rgba(168,85,247,.8);}
-to{box-shadow:0 0 30px rgba(34,211,238,1),0 0 60px rgba(168,85,247,1);}
+@keyframes float{
+from{transform:translateY(100vh)}
+to{transform:translateY(-100vh)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-<div class="loader-ring"></div>
-<div class="loader-text">LOADING</div>
-</div>
-
-<!-- SOUND -->
-<audio id="loadSound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3"></audio>
-
 <div class="cursor"></div>
 
 <script>
-// Loader fast
-window.addEventListener("load",()=>{
-document.getElementById("loadSound").play().catch(()=>{});
-setTimeout(()=>document.getElementById("loader").classList.add("hide"),1600);
-});
-
-// Cursor
 const cursor=document.querySelector(".cursor");
 document.addEventListener("mousemove",e=>{
 cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
 
-// Particles
 for(let i=0;i<35;i++){
 let p=document.createElement("div");
 p.className="particle";
@@ -244,7 +197,6 @@ p.style.animationDuration=10+Math.random()*15+"s";
 document.body.appendChild(p);
 }
 
-// Reveal
 window.addEventListener("scroll",()=>{
 document.querySelectorAll(".reveal").forEach(el=>{
 if(el.getBoundingClientRect().top<window.innerHeight-100){
@@ -257,6 +209,7 @@ el.classList.add("active");
 <!-- HERO -->
 <div class="hero">
 <div>
+<img src="images/profile.png" class="profile-pic">
 <h1>Ali Hammad Shehzad</h1>
 <p>Unity Game Developer</p>
 <a href="#projects" class="btn">View Games</a>
@@ -278,10 +231,10 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 <h3>Unity Game Developer — Emerging Tech</h3>
 <p>June 2024 – Oct 2025</p>
 <ul>
-<li> Unity 3D game development</li>
-<li> iOS App Store publishing</li>
-<li> Bug fixing & optimization</li>
-<li> Gameplay improvement</li>
+<li>Unity 3D game development</li>
+<li>iOS App Store publishing</li>
+<li>Bug fixing & optimization</li>
+<li>Gameplay improvement</li>
 </ul>
 </div>
 </section>
@@ -342,33 +295,9 @@ and optimizing iOS games. Passionate about neon-style polished UI.
 </div>
 </section>
 
-<!-- FLOATING BUTTONS -->
-<div id="floatingButtons">
-<a href="#" id="backToTop" class="btn">⬆ Home</a>
-<a href="Ali-Hammad-Shehzad-CV.pdf" target="_blank" class="btn">📄 View CV</a>
-</div>
-
 <footer>
 © 2025 Ali Hammad Shehzad | Unity Game Developer
 </footer>
-
-<script>
-// Back to Top Button
-const backToTop = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'inline-block';
-  } else {
-    backToTop.style.display = 'none';
-  }
-});
-
-backToTop.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
 
 </body>
 </html>
