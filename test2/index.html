@@ -3,139 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Brand - Landing Page</title>
+    <title>Power Brand Website</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* Yahan aapka saara CSS paste kiya gaya hai */
-        /* (Main isse short rakhte hue main variables aur layout classes include kar raha hoon) */
-        :root {
-            --background: 0 0% 100%;
-            --foreground: 0 0% 10%;
-            --primary: 0 78% 52%; /* Red */
-            --secondary: 45 100% 58%; /* Yellow */
-            --card: 0 0% 100%;
-            --border: 0 0% 90%;
-            --muted-foreground: 0 0% 45%;
-            --radius: .75rem;
-            --shadow-red: 0 10px 30px -10px hsl(0 78% 52% / .4);
-        }
-
-        /* Basic Resets from your code */
-        body { 
-            margin: 0; 
-            font-family: 'Poppins', sans-serif; 
-            background-color: hsl(var(--background));
-            color: hsl(var(--foreground));
-            line-height: 1.6;
-        }
-
-        h1 { 
-            font-family: 'Bebas Neue', sans-serif; 
-            font-size: 4rem; 
-            line-height: 1; 
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, hsl(0, 78%, 52%) 0%, hsl(15, 85%, 50%) 50%, hsl(45, 100%, 58%) 100%);
-            padding: 100px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all .3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-white {
-            background: white;
-            color: hsl(var(--primary));
-            box-shadow: var(--shadow-red);
-        }
-
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.2);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: -50px;
-            padding-bottom: 50px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
-            border: 1px solid hsl(var(--border));
-            text-align: center;
-        }
-
-        .card h3 {
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: hsl(var(--muted-foreground));
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="hero">
+    <header class="bg-gradient-to-br from-primary via-yellow-500 to-secondary py-24 px-6 text-center text-white">
         <div class="container">
-            <h1>Level Up Your Game</h1>
-            <p style="font-size: 1.2rem; opacity: 0.9; margin: 20px 0 40px;">
-                The most powerful performance tools built for champions.
+            <h1 class="mb-6">Level Up Your Game</h1>
+            <p class="max-w-2xl mx-auto mb-8" style="font-size: 1.2rem; opacity: 0.9;">
+                The most powerful performance tools built for champions. 
+                Experience the ultimate quality with our gear.
             </p>
-            <a href="#" class="btn btn-white">Join the Revolution</a>
+            <div class="flex justify-center gap-4">
+                <button id="mainButton" class="bg-white text-primary px-8 py-3 rounded-full font-bold shadow-red transition-smooth pointer-events-auto">
+                    Get Started
+                </button>
+            </div>
         </div>
     </header>
 
-    <section class="container">
-        <div class="grid">
-            <div class="card">
-                <h3>Extreme Durability</h3>
-                <p>Designed to withstand the toughest conditions and last a lifetime.</p>
+    <section class="container mt-12 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            
+            <div class="bg-card p-8 rounded-2xl shadow-card border border-border text-center">
+                <h3 class="mb-3">Extreme Durability</h3>
+                <p class="text-muted-foreground">Built to last through the toughest training sessions and environments.</p>
             </div>
-            <div class="card">
-                <h3>Peak Performance</h3>
-                <p>Our technology ensures you stay at the top of your game, every single day.</p>
+
+            <div class="bg-card p-8 rounded-2xl shadow-card border border-border text-center">
+                <h3 class="mb-3">Peak Performance</h3>
+                <p class="text-muted-foreground">Engineered for speed, comfort, and maximum results in every move.</p>
             </div>
-            <div class="card">
-                <h3>Fast Support</h3>
-                <p>Our team is here 24/7 to help you achieve your goals through excellence.</p>
+
+            <div class="bg-card p-8 rounded-2xl shadow-card border border-border text-center">
+                <h3 class="mb-3">Global Support</h3>
+                <p class="text-muted-foreground">Our community and support team are always there for your success.</p>
             </div>
+
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 50px 0; color: #999; font-size: 0.9rem;">
+    <footer class="text-center py-8 border-t border-border text-muted-foreground">
         <p>© 2026 Power Brand. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
