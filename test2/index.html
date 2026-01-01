@@ -1,29 +1,141 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>DPF - Decent Fast Food | Khanqah Dogran Branch | Order Online</title>
-    <meta name="description" content="Order delicious Burgers, Pizza, Rolls, Pasta & more from Decent Fast Food (DPF) Khanqah Dogran Branch. Fast delivery. Call 0333-2000085 or 0321-0603333" />
-    <meta name="author" content="Decent Fast Food" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Brand - Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Yahan aapka saara CSS paste kiya gaya hai */
+        /* (Main isse short rakhte hue main variables aur layout classes include kar raha hoon) */
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 0 0% 10%;
+            --primary: 0 78% 52%; /* Red */
+            --secondary: 45 100% 58%; /* Yellow */
+            --card: 0 0% 100%;
+            --border: 0 0% 90%;
+            --muted-foreground: 0 0% 45%;
+            --radius: .75rem;
+            --shadow-red: 0 10px 30px -10px hsl(0 78% 52% / .4);
+        }
 
-    <meta property="og:title" content="DPF - Decent Fast Food | Khanqah Dogran Branch" />
-    <meta property="og:description" content="Grab Your Meal – Eat Well Feel Well. Order from our full menu of Burgers, Pizza, Rolls, Shawarma & more!" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        /* Basic Resets from your code */
+        body { 
+            margin: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <script type="module" crossorigin src="/assets/index-BiLUplNJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-r_QcLrNw.css">
-  </head>
+        h1 { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 4rem; 
+            line-height: 1; 
+            margin: 0;
+            text-transform: uppercase;
+        }
 
-  <body>
-    <div id="root"></div>
-  </body>
+        .hero {
+            background: linear-gradient(135deg, hsl(0, 78%, 52%) 0%, hsl(15, 85%, 50%) 50%, hsl(45, 100%, 58%) 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all .3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-white {
+            background: white;
+            color: hsl(var(--primary));
+            box-shadow: var(--shadow-red);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: -50px;
+            padding-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+            border: 1px solid hsl(var(--border));
+            text-align: center;
+        }
+
+        .card h3 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: hsl(var(--muted-foreground));
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Level Up Your Game</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin: 20px 0 40px;">
+                The most powerful performance tools built for champions.
+            </p>
+            <a href="#" class="btn btn-white">Join the Revolution</a>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>Extreme Durability</h3>
+                <p>Designed to withstand the toughest conditions and last a lifetime.</p>
+            </div>
+            <div class="card">
+                <h3>Peak Performance</h3>
+                <p>Our technology ensures you stay at the top of your game, every single day.</p>
+            </div>
+            <div class="card">
+                <h3>Fast Support</h3>
+                <p>Our team is here 24/7 to help you achieve your goals through excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 50px 0; color: #999; font-size: 0.9rem;">
+        <p>© 2026 Power Brand. All Rights Reserved.</p>
+    </footer>
+
+</body>
 </html>
